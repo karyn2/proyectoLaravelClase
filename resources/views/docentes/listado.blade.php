@@ -7,7 +7,46 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+<div class="text-right mt-4 ml-4">
+        <button class="btn btn-success">
+            <i class="fas fa-plus"></i> Registrar
+        </button>
+</div>
+<table class="table mt-4 text-center">
+  <thead class="table-success text-center">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Opción</th>
+    </tr>
+  </thead>
+  <tbody>
+    @php
+        $i=1;
+    @endphp
+    @foreach($docente as $f)
+    <tr>
+      <td>{{ $i }}</td>
+      <td>{{ $f->codprofesor }}</td>
+      <td>{{ $f->nomprofesor }}</td>
+      <td>{{ $f->catprofesor }}</td>
+      <td>
+      <button class="btn btn-primary">
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+      <button class="btn btn-danger">
+        <i class="fas fa-trash"></i>
+      </button>
+      </td>
+      @php 
+      $i = $i+1;
+      @endphp
+    </tr>
+  </tbody>
+  @endforeach
+</table>
 @stop
 
 @section('css')

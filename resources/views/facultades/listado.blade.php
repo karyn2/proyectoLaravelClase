@@ -9,12 +9,10 @@
 
 @section('content')
 <div class="text-right mt-4 ml-4">
-        <button class="btn btn-success">
-            <i class="fas fa-plus"></i> Registrar
-        </button>
+  <a href="/facultades/registrar" class="btn btn-success">  <i class="fas fa-plus"></i> Registrar</a>
 </div>
-<table class="table mt-4 table-warning">
-  <thead>
+<table class="table mt-4 text-center">
+  <thead class="table-info text-center">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Codigo</th>
@@ -23,12 +21,14 @@
     </tr>
   </thead>
   <tbody>
-
-
+    @php
+        $i=1;
+    @endphp
+    @foreach($faculty as $f)
     <tr>
-      <td>1</td>
-      <td>200</td>
-      <td>INGENIERÍA</td>
+      <td>{{ $i }}</td>
+      <td>{{ $f->codfacultad }}</td>
+      <td>{{ $f->nomfacultad }}</td>
       <td>
       <button class="btn btn-primary">
         <i class="fas fa-pencil-alt"></i>
@@ -37,8 +37,12 @@
         <i class="fas fa-trash"></i>
       </button>
       </td>
+      @php 
+      $i = $i+1;
+      @endphp
     </tr>
   </tbody>
+  @endforeach
 </table>
 @stop
 

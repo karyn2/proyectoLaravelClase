@@ -32,8 +32,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//RUTAS FACULTADES
 Route::get('/facultades/listado', [FacultadesController::class, 'index'])
-->middleware(['auth', 'verified'])->name('facultades.listado');
+->middleware(['auth', 'verified'])->name('listado_facultades');
+
+Route::get('/facultades/registrar', [FacultadesController::class, 'form_registro'])
+->middleware(['auth', 'verified'])->name('registrar_fac');
+
+Route::post('/facultades/registrar', [FacultadesController::class, 'registrar'])
+->middleware(['auth', 'verified'])->name('form_registro_fac');
+
+
 
 Route::get('/programas/listado', [ProgramasController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('programas.listado');
