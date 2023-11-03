@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('barrio', function (Blueprint $table) {
-            $table->string('codbarrio',3)->primary();
-            $table->string('nombarrio',50);
-            $table->integer('estbarrio');
-            $table->integer('comuna');
+        Schema::create('profesor', function (Blueprint $table) {
+            $table->string('codprofesor',2);
+            $table->string('nomprofesor',30);
+            $table->string('catprofesor',10);
+            $table->primary('codprofesor');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barrio');
+        Schema::dropIfExists('profesor');
     }
 };
